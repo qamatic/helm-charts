@@ -2,7 +2,7 @@
 
 
 package:
-	cd out && rm *.tgz
+	cd out && rm -f *.tgz
 	cd qamatic && helm package pact-broker -d ../out
 	ls -alsh out
 
