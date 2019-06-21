@@ -5,7 +5,7 @@ appVersion: "1.0"
 description: A Helm chart for Pact-Broker
 icon: https://qamatic.github.io/qamatic-assets/logo-m.png
 sources:
-  - https://github.com/qamatic/charts-dev
+  - https://github.com/qamatic/helm-charts
 maintainers:
   - name: Senthil Maruthaiappan
     email: senips@gmail.com
