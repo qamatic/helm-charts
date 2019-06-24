@@ -14,6 +14,44 @@ service:
     fabric8.io/expose: "true"
     fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx"
 
+pact:
+  port: 9292    
+
+postgresql:
+
+  ## Use the PostgreSQL chart dependency.
+  ## Set to false if bringing your own PostgreSQL.
+  ##
+  enabled: true
+  postgresUser: pactbroker
+  postgresPassword: pactbroker
+  postgresDatabase: pactbroker
+
+  persistence:
+    ## Enable PostgreSQL persistence using Persistent Volume Claims.
+    ##
+    enabled: true
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 8Gi
+
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: pact-broker.local
+      paths: []
+
+  tls: []
+  #  - secretName: pact-broker-tls
+  #    hosts:
+  #      - pact-broker.local
+
 resources:
   limits:
     cpu: 400m
