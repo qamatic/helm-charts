@@ -33,3 +33,11 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- $name := default "postgresql" .Values.postgresql.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Common labels
+*/}}
+{{- define "pact-broker.labels" -}}
+app.kubernetes.io/name: {{ include "name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end -}}
